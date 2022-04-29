@@ -1,0 +1,45 @@
+file:
+        upload:
+                path: G:/tmp
+server:
+        port:8082
+mybatis-plus:
+        configuration:
+                log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+                local-cache-scope: statement
+        mapper-locations: classpath:mapper/*.xml
+spring:
+        servlet:
+                multipart:
+                        max-request-size: 10000MB
+                        max-file-size: 10000MB
+
+        datasource:
+                name: druidDataSource
+                type: com.alibaba.druid.pool.DruidDataSource
+                driver-class-name: com.mysql.cj.jdbc.Driver
+                url: jdbc:mysql://120.79.4.36:3306/medical_platform_data?characterEncoding=utf-8&useSSL=false
+                username: root
+                password: niit1234
+                max-active: 100
+                initial-size: 1
+                max-wait: 60000
+                min-idle: 1
+                time-between-eviction-runs-millis: 60000
+                min-evictable-idle-time-millis: 300000
+
+        jackson:
+                date-format: yyyy-MM-dd HH:mm:ss
+                time-zone: GMT+8
+        elasticsearch:
+                rest:
+                        uris: localhost:9200
+                        connection-time: 1s
+                        read-timeout: 1m
+                        password: niit1234
+                        username: root
+
+logging:
+        level:
+                root: WARN
+

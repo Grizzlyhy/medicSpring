@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.code.mapper.DatasetMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zhou.code.bean.Dataset">
+        <result column="dataset_id" property="datasetId" />
+        <result column="dataset_name" property="datasetName" />
+        <result column="dataset_url" property="datasetUrl" />
+        <result column="dataset_link" property="datasetLink" />
+        <result column="dataset_background" property="datasetBackground" />
+        <result column="dataset_keyword" property="datasetKeyword" />
+        <result column="dataset_type" property="datasetType" />
+        <result column="dataset_attribute_count" property="datasetAttributeCount" />
+        <result column="dataset_instance_count" property="datasetInstanceCount" />
+        <result column="dataset_value_missing" property="datasetValueMissing" />
+        <result column="dataset_task" property="datasetTask" />
+        <result column="click_count" property="clickCount" />
+        <result column="download_count" property="downloadCount" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        dataset_id, dataset_name, dataset_url, dataset_link, dataset_background, dataset_keyword, dataset_type, dataset_attribute_count, dataset_instance_count, dataset_value_missing, dataset_task, click_count, download_count, create_time, update_time, deleted
+    </sql>
+    <select id="getLastId" resultType="java.lang.Integer">
+        SELECT dataset_id FROM dataset ORDER BY dataset_id DESC LIMIT 1;
+    </select>
+    <select id="getDatasetByUserId" resultType="com.zhou.code.bean.Dataset">
+        select * from dataset where user_id=#{user_id};
+    </select>
+
+</mapper>

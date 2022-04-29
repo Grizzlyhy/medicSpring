@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.code.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zhou.code.bean.User">
+        <result column="user_id" property="userId" />
+        <result column="user_pwd" property="userPwd" />
+        <result column="user_role" property="userRole" />
+        <result column="user_department" property="userDepartment" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, user_pwd, user_role, user_department, create_time, update_time, deleted
+    </sql>
+    <select id="getUserByAccount" resultType="com.zhou.code.bean.User">
+        select * from user where user_account=#{user_account};
+    </select>
+
+</mapper>
